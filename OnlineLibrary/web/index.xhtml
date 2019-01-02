@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    
+    <h:head>
+        <title>Search for a Book!</title>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h1>Welcome to our Humble Online Library</h1>
+        <h2>Below you will find all the titles available, you can also filter by tittle or author for convenience</h2>
+        <h:panelGrid columns="2">
+            <h:commandLink value="Filter by title" action="#{listBooksBean.filterByTitle()}" />
+            <h:inputText value="#{listBooksBean.filterTitle}" />
+            <h:commandLink value="Filter by author" action="#{listBooksBean.filterByAuthor()}" />
+            <h:inputText value="#{listBooksBean.filterAuthor}" />
+        </h:panelGrid>
+        <h2>Listing Books</h2>       
+        <h:dataTable value="#{listBooksBean.books}" 
+                     var="books" 
+                     styleClass="order-table"
+                     headerClass="table-header"
+                     rowClasses="table-odd-row,table-even-row">
+            <h:column>
+                <f:facet name="header">Isbn</f:facet>
+                #{books.isbn}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                #{books.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Edition Number</f:facet>
+                #{books.editionNumber}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Copyright</f:facet>
+                #{books.copyRight}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Author</f:facet>
+                #{books.author}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Quantity</f:facet>
+                #{books.quantity}
+            </h:column>
+        </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
