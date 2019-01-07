@@ -23,6 +23,7 @@ import javax.persistence.Query;
 @SessionScoped
 public class ListBooksBean {
     
+    private String filterISBN;
     private String filterTitle;
     private String filterAuthor;
             
@@ -42,6 +43,16 @@ public class ListBooksBean {
         return books;
     }
 
+    public String getFilterISBN() {
+        return filterISBN;
+    }
+
+    public void setFilterISBN(String filterISBN) {
+        this.filterISBN = filterISBN;
+    }
+
+    
+    
     public void setBooks(List<Books> books) {
         this.books = books;
     }
@@ -83,6 +94,20 @@ public class ListBooksBean {
         return query;
     }
     
+        private Query constructFilterByISBNQuery() {
+        String ql = "SELECT b FROM Books b WHERE LOWER(b.isbn) LIKE LOWER(:isbn)";                  
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery(ql);
+
+        if (isParameterPresent(filterISBN))
+            query.setParameter("isbn", filterISBN + "%");
+        else
+            query.setParameter("isbn", "" + "%");
+
+        return query;
+    }
+    
         private Query constructFilterByAuthorQuery() {
         String ql = "SELECT b FROM Books b WHERE LOWER(b.author) LIKE LOWER(:author)";                  
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
@@ -97,6 +122,12 @@ public class ListBooksBean {
         return query;
     }
     
+        public String filterByISBN() {
+        Query query = constructFilterByISBNQuery();
+        books = query.getResultList();                
+        return "";
+    }    
+        
     public String filterByTitle() {
         Query query = constructFilterByTitleQuery();
         books = query.getResultList();                
