@@ -14,11 +14,11 @@
         <h1>Welcome to our Humble Online Library</h1>
         <h2>Below you will find all the titles available, you can also filter by tittle or author for convenience</h2>
         <h:panelGrid columns="2">
-            <h:commandLink value="Filter by ISBN" action="#{listBooksBean.filterByISBN()}" />
+            <h:commandButton value="Filter by ISBN" action="#{listBooksBean.filterByISBN()}" />
             <h:inputText value="#{listBooksBean.filterISBN}" />
-            <h:commandLink value="Filter by title" action="#{listBooksBean.filterByTitle()}" />
+            <h:commandButton value="Filter by title" action="#{listBooksBean.filterByTitle()}" />
             <h:inputText value="#{listBooksBean.filterTitle}" />
-            <h:commandLink value="Filter by author" action="#{listBooksBean.filterByAuthor()}" />
+            <h:commandButton value="Filter by author" action="#{listBooksBean.filterByAuthor()}" />
             <h:inputText value="#{listBooksBean.filterAuthor}" />
         </h:panelGrid>
         <h2>Listing Books</h2>       
