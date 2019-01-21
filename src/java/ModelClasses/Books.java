@@ -7,12 +7,10 @@ package ModelClasses;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -22,7 +20,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author GW Computers
  */
 @Entity
-@Table(name = "books")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Books.findAll", query = "SELECT b FROM Books b")
@@ -36,32 +33,28 @@ public class Books implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "ISBN")
+    //@Size(min = 1, max = 20)
     private String isbn;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "Title")
+    //@Size(min = 1, max = 100)
     private String title;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @NotNull
-    @Column(name = "EditionNumber")
     private int editionNumber;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "CopyRight")
+    //@Size(min = 1, max = 45)
     private String copyRight;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "Author")
+    //@Size(min = 1, max = 100)
     private String author;
-    @Column(name = "Quantity")
-    private Integer quantity;
+    //@Basic(optional = false)
+    @NotNull
+    private int quantity;
 
     public Books() {
     }
@@ -70,12 +63,13 @@ public class Books implements Serializable {
         this.isbn = isbn;
     }
 
-    public Books(String isbn, String title, int editionNumber, String copyRight, String author) {
+    public Books(String isbn, String title, int editionNumber, String copyRight, String author, int quantity) {
         this.isbn = isbn;
         this.title = title;
         this.editionNumber = editionNumber;
         this.copyRight = copyRight;
         this.author = author;
+        this.quantity = quantity;
     }
 
     public String getIsbn() {
@@ -118,11 +112,11 @@ public class Books implements Serializable {
         this.author = author;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
