@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    
+    <h:head>
+        <title>Search for a User!</title>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h1>Welcome to our User Database</h1>
+        <h2>Below you will find all the user info, use with caution!</h2>
+        <h:panelGrid columns="2">
+            <h:commandButton value="Filter by name" action="#{listUsersBean.constructFilterByName()}" />
+            <h:inputText value="#{listUsersBean.filterByName}" />
+            <h:commandButton value="Filter by Lastname" action="#{listUsersBean.constructFilterByLastName()}" />
+            <h:inputText value="#{listUsersBean.filterByLastName}" />
+            <h:commandButton value="Filter by Email" action="#{listUsersBean.constructFilterByEmail()}" />
+            <h:inputText value="#{listUsersBean.filterByEmail}" />
+        </h:panelGrid>
+        <h2>Listing Books</h2>       
+        <h:dataTable value="#{listUsersBean.users}" 
+                     var="users" 
+                     styleClass="order-table"
+                     headerClass="table-header"
+                     rowClasses="table-odd-row,table-even-row">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{users.userid}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{users.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                #{users.lastName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{users.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Type</f:facet>
+                #{users.type}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                #{users.password}
+            </h:column>
+        </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
