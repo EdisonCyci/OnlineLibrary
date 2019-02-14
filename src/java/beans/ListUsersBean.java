@@ -123,8 +123,9 @@ public class ListUsersBean implements Serializable {
     
         public String constructFilterByID() {
         Query query = constructFilterByIDQuery();
-        users = query.getResultList();                
+        users = query.getResultList();
         return "";
+        
     }    
         
         public String constructFilterByName() {
