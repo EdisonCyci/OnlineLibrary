@@ -1,17 +1,22 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     
     <h:head>
-        <title>Search for a Book!</title>
+        <title>Manager View</title>
         <h:outputStylesheet name="style.css" library="css"/>
     </h:head>
     <h:body>
         <h:form>
-        <h1>Welcome to our Humble Online Library</h1>
+        <h1>Hello manager, welcome to our Humble Online Library</h1>
         <h2>Below you will find all the titles available, you can also filter by tittle or author for convenience</h2>
         <h:commandButton value="Logout" action="#{loginBean.logout}"></h:commandButton>
         <h:panelGrid columns="2">
@@ -56,4 +61,3 @@
         </h:form>
     </h:body>
 </html>
-

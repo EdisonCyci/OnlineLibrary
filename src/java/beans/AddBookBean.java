@@ -9,7 +9,7 @@ import ModelClasses.Books;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,12 +19,8 @@ import javax.persistence.Persistence;
  * @author GW Computers
  */
 @Named(value = "addBookBean")
-@Dependent
 @RequestScoped
 public class AddBookBean {
-
-    @ManagedProperty(value="#{listBooksBean}")
-    private ListBooksBean listBooksBean;
     
     private String isbn;
     private String title;
@@ -55,7 +51,6 @@ public class AddBookBean {
         em.getTransaction().begin();
         em.persist(book);
         em.getTransaction().commit();       
-        listBooksBean.fillBooks();
         return "index";
         
     }

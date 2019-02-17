@@ -9,7 +9,7 @@ import ModelClasses.Users;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,17 +25,29 @@ public class LoginBean {
 
  private String email;
  private String password;
+ private char type;
  private List<Users> users;
     
     public LoginBean() {
     }
 
-    public LoginBean(String email, String password, List<Users> users) {
+    public LoginBean(String email, String password, char type, List<Users> users) {
         this.email = email;
         this.password = password;
         this.users = users;
+        this.type = type;
     }
 
+    public char getType() {
+        return type;
+    }
+
+    public void setType(char type) {
+        this.type = type;
+    }
+
+    
+    
     public List<Users> getUsers() {
         return users;
     }
@@ -59,12 +71,25 @@ public class LoginBean {
         public String attemptLogin() {
         Query query = constructLoginQuerry();
         users = query.getResultList();
+        //type = users.get(0).getType();
         if(users.isEmpty())
         {
         return "";             
         }
-        else
+        else{
+            type = users.get(0).getType();
+            if(type=='A')
+             return "managerView";
+            else 
              return "index";
+        }
+
+    }
+        
+        public String logout() {
+        this.email = "";
+        this.password = "";
+        return "login";
     }
         
     
