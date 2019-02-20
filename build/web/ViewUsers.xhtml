@@ -18,6 +18,7 @@ and open the template in the editor.
         <h:form>
         <h1>Welcome to our User Database</h1>
         <h2>Below you will find all the user info, use with caution!</h2>
+        <br/><br/>
         <h:panelGrid columns="2">
             <h:commandButton value="Filter by name" action="#{listUsersBean.constructFilterByName()}" />
             <h:inputText value="#{listUsersBean.filterByName}" />
@@ -26,6 +27,9 @@ and open the template in the editor.
             <h:commandButton value="Filter by Email" action="#{listUsersBean.constructFilterByEmail()}" />
             <h:inputText value="#{listUsersBean.filterByEmail}" />
         </h:panelGrid>
+        <br/>
+        <h:commandButton value="AddUser" action="addUser"/>
+        <br/>
         <h2>Listing Books</h2>       
         <h:dataTable value="#{listUsersBean.users}" 
                      var="users" 
@@ -57,6 +61,8 @@ and open the template in the editor.
                 #{users.password}
             </h:column>
         </h:dataTable>
+        <br/><br/>
+        <h:commandButton value="Back" action="managerView"/>
         </h:form>
     </h:body>
 </html>

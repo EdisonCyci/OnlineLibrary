@@ -29,6 +29,9 @@ and open the template in the editor.
 		
 		<h:commandButton 
                     value="Login" action="#{loginBean.attemptLogin()}"></h:commandButton>
+                    
+                <br/><br/>
+                <h:outputText id="resultOutputText" escape="false" value="#{loginBean.error}"/>    
 	</h:form>
 </h:body>
 </html>

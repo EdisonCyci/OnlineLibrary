@@ -121,6 +121,18 @@ public class ListBooksBean {
 
         return query;
     }
+        public String removeBook(String ISBN) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
+        EntityManager em = emf.createEntityManager();
+        Books book = em.find(Books.class, ISBN);
+        em.getTransaction().begin();
+        em.remove(book);
+        em.getTransaction().commit();
+        
+        books = em.createNamedQuery("Books.findAll").getResultList();
+        return "";
+    }
+        
     
         public String filterByISBN() {
         Query query = constructFilterByISBNQuery();

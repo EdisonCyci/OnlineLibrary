@@ -33,12 +33,17 @@ and open the template in the editor.
 
             <h:outputText value="Quantity" />
             <h:inputText value="#{addBookBean.quantity}" required="true" requiredMessage="Quantity must be provided"/>
-                        
+            </h:panelGrid>
+            <br/><br/>
+            <br/><br/>
+            <h:panelGrid columns="2">
             <h:commandButton value="Create" 
                              action="#{addBookBean.create()}" 
                             onclick="if (! confirm('Are you sure?')) return false"/>
-            <h:commandLink value="Cancel" action="index" />
-        </h:panelGrid>
+            <h:commandButton value="Cancel" action="managerView" />
+            </h:panelGrid>
+        <br/><br/>
+        <h:outputText id="resultOutputText" escape="false" value="#{addBookBean.error}"/>
         </h:form>
     </body>
 </html>

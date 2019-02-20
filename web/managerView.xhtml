@@ -19,6 +19,7 @@ and open the template in the editor.
         <h1>Hello manager, welcome to our Humble Online Library</h1>
         <h2>Below you will find all the titles available, you can also filter by tittle or author for convenience</h2>
         <h:commandButton value="Logout" action="#{loginBean.logout}"></h:commandButton>
+        <br/><br/>
         <h:panelGrid columns="2">
             <h:commandButton value="Filter by ISBN" action="#{listBooksBean.filterByISBN()}" />
             <h:inputText value="#{listBooksBean.filterISBN}" />
@@ -27,7 +28,13 @@ and open the template in the editor.
             <h:commandButton value="Filter by author" action="#{listBooksBean.filterByAuthor()}" />
             <h:inputText value="#{listBooksBean.filterAuthor}" />
         </h:panelGrid>
-        <h2>Listing Books</h2>       
+        <br/><br/>
+        <h:panelGrid columns="2">
+            <h:commandButton value="AddBook" action="AddBook" />
+            <h:commandButton value="ViewUsers" action="ViewUsers"/>
+        </h:panelGrid>        
+        <h2>Listing Books</h2>
+        <br/><br/>
         <h:dataTable value="#{listBooksBean.books}" 
                      var="books" 
                      styleClass="order-table"
@@ -56,6 +63,12 @@ and open the template in the editor.
             <h:column>
                 <f:facet name="header">Quantity</f:facet>
                 #{books.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:commandLink value="Delete" 
+                               action="#{listBooksBean.removeBook(books.isbn)}" 
+                               onclick="if (! confirm('Are you sure?')) return false"/>
             </h:column>
         </h:dataTable>
         </h:form>

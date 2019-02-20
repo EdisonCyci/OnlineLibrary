@@ -6,6 +6,7 @@
 package beans;
 
 import ModelClasses.Books;
+import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedProperty;
@@ -13,6 +14,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,6 +30,8 @@ public class AddBookBean {
     private String copyRight;
     private String author;
     private int quantity;
+    private String error=" ";
+    private List<Books> books;
     /**
      * Creates a new instance of AddBookBean
      */
@@ -43,17 +47,49 @@ public class AddBookBean {
         book.setQuantity(this.quantity);
         return book;
     }
-    
+        
+        private Query constructIsPresentQuerry() {
+        String ql = "SELECT b FROM Books b WHERE b.isbn = :isbn";                  
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery(ql);
+        query.setParameter("isbn", isbn);
+        return query;
+    }
+        
+        
+        
         public String create() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
         EntityManager em = emf.createEntityManager();
-        Books book = initBook();
+        Query query = constructIsPresentQuerry();
+        books = query.getResultList();
+        if (books.isEmpty())        //check if books with same isbn exist, if not we are ok to go, if not we get error message
+        {                           //we could make the insertion validation more thorough by checking other criteria  
+        Books book = initBook();    //such as tittle and etition number to make sure there are no duplicates
         em.getTransaction().begin();
         em.persist(book);
         em.getTransaction().commit();       
-        return "index";
+        return "managerView";
+        }
+        else
+        {
+            error = "<p style=\"background-color:red;width:200px;" +
+            "padding:5px\">A book with ISBN: " + getIsbn() + "already exists, please check the data and retry! </p>";
+            return "";
+        }
         
     }
+        
+        public String cancel(){
+        this.isbn = "*";
+        this.title = "*";
+        this.editionNumber = 1;
+        this.copyRight = "*";
+        this.author = "*";
+        this.quantity = 1;
+        return "managerView";
+        }
 
     public String getIsbn() {
         return isbn;
@@ -61,6 +97,14 @@ public class AddBookBean {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+    
+       public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 
     public String getTitle() {

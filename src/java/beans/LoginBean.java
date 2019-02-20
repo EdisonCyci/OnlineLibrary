@@ -26,16 +26,18 @@ public class LoginBean {
  private String email;
  private String password;
  private char type;
+ private String error = " ";
  private List<Users> users;
     
     public LoginBean() {
     }
 
-    public LoginBean(String email, String password, char type, List<Users> users) {
+    public LoginBean(String email, String password, char type, String error, List<Users> users) {
         this.email = email;
         this.password = password;
         this.users = users;
         this.type = type;
+        this.error = error;
     }
 
     public char getType() {
@@ -46,7 +48,14 @@ public class LoginBean {
         this.type = type;
     }
 
-    
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
     
     public List<Users> getUsers() {
         return users;
@@ -74,6 +83,8 @@ public class LoginBean {
         //type = users.get(0).getType();
         if(users.isEmpty())
         {
+        error = "<p style=\"background-color:red;width:200px;" +
+            "padding:5px\">Incorrect Username or Password, please doublecheck and try again! </p>";    
         return "";             
         }
         else{
