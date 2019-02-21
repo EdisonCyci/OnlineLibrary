@@ -58,25 +58,38 @@ public class AddUserBean {
         return user;
     }
     
-        private Query constructIsPresentQuerry() {
-        String ql = "SELECT u FROM Users u WHERE u.userid = :userid AND u.email = :email";                  
+        private Query constructIsIDPresentQuerry() {
+        String ql = "SELECT u FROM Users u WHERE u.userid = :userid";                  
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery(ql);
         query.setParameter("userid", userId);
-        query.setParameter("email", email);
+        return query;
+    }
+        
+        private Query constructIsEmailPresentQuerry() {
+        String ql = "SELECT u FROM Users u WHERE u.email = :email";                  
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery(ql);
+        query.setParameter("email", email);  
         return query;
     }
         
         public String create() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineLibraryPU");
         EntityManager em = emf.createEntityManager();
-        Query query = constructIsPresentQuerry();
+        Query query = constructIsIDPresentQuerry();
         users = query.getResultList();
-        if (users.isEmpty())        //check if user with same userID or email exist, if not we are ok to go, if not we get error message
+        if (users.isEmpty())        //check if user with same userID exist, if not we are ok to go, if not we get error message
         {                           //we could make the insertion validation more thorough by checking other criteria
                                     //such as tittle and etition number to make sure there are no duplicates
-            if(this.password.equals(this.confirmPassword)) //checking if password is correct
+                                    //checking if password is correct
+            query = constructIsEmailPresentQuerry();
+            users = query.getResultList();
+            if(users.isEmpty())    //check if user with same email exist, if not we are ok to go, if not we get error message
+            {                        
+            if(this.password.equals(this.confirmPassword)) 
             {                            
             Users user = initUser();    
             em.getTransaction().begin();
@@ -90,11 +103,19 @@ public class AddUserBean {
                 "padding:5px\">Passwords do not match, please check the data and retry! </p>";
                 return "";
             }
+            }
+            else
+            {
+                error = "<p style=\"background-color:red;width:200px;" +
+                "padding:5px\">User with email: " + getEmail() +
+                " already exists, please check the data and retry! </p>";
+                return"";
+            }
         }
         else
         {
             error = "<p style=\"background-color:red;width:200px;" +
-            "padding:5px\">User with userID: " + getUserId() + "and email" + getEmail() +
+            "padding:5px\">User with userID: " + getUserId() +
                     " already exists, please check the data and retry! </p>";
             return "";
         }

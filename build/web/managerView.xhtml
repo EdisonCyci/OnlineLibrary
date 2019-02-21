@@ -39,10 +39,14 @@ and open the template in the editor.
                      var="books" 
                      styleClass="order-table"
                      headerClass="table-header"
-                     rowClasses="table-odd-row,table-even-row">
+                     rowClasses="table-odd-row,table-even-row"
+                     cellpadding="3" cellspacing="1">
             <h:column>
                 <f:facet name="header">Isbn</f:facet>
-                #{books.isbn}
+                <h:link value="#{books.isbn}" outcome="viewBookDetails">
+                    <f:param name="bookIsbn" value="#{books.isbn}" />
+                </h:link>
+                
             </h:column>
             <h:column>
                 <f:facet name="header">Title</f:facet>
