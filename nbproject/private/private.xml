@@ -9,9 +9,14 @@
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/ListBooksBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/AddBook.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/viewBookDetails.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/updateBookBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/ListUsersBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/updateBook.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/addUser.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/AddUserBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/ModelClasses/Borrowedbooks.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/viewBookDetailsBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/LoginBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/managerView.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/ModelClasses/Users.java</file>

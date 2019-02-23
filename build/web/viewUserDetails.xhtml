@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>User Details</title>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <f:metadata>
+            <f:viewParam name="userID" value="#{viewUserDetailsBean.userID}" />
+            <f:event type="preRenderView" listener="#{viewUserDetailsBean.init()}" />
+        </f:metadata>
+        <h1>Here Are the details for the book you have selected.</h1>    
+        <br/>   
+        <h:panelGrid id="panelGrid" columns="2" cellpadding="3" cellspacing="1" columnClasses="left-column,right-column">
+            <h:outputText value="UserID" />
+            <h:outputText value="#{viewUserDetailsBean.user.userid}"/>
+            
+            <h:outputText value="Name" />
+            <h:outputText value="#{viewUserDetailsBean.user.name}"/>
+
+            <h:outputText value="LastName" />
+            <h:outputText value="#{viewUserDetailsBean.user.lastName}"/>
+            
+            <h:outputText value="Email" />
+            <h:outputText value="#{viewUserDetailsBean.user.email}"/>
+
+            <h:outputText value="Type" />
+            <h:outputText value="#{viewUserDetailsBean.user.type}"/>
+            
+            <h:outputText value="Password" />
+            <h:outputText value="#{viewUserDetailsBean.user.password}"/>
+
+            <f:facet name = "footer">
+                <h:panelGroup>
+                    <h:commandButton value="Back" action="managerView" />
+                    <h:outputText value=" " />
+                    <h:commandButton value="Update" action="updateUser" >
+                        <f:param name="UserEmail" value="#{viewUserDetailsBean.user.email}" />
+                    </h:commandButton>
+                </h:panelGroup>
+            </f:facet>            
+            
+        </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

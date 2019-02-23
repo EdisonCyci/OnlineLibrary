@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Update User Info</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+        <f:metadata>
+            <f:viewParam name="UserID" value="#{viewUserDetailsBean.userID}" />
+            <f:event type="preRenderView" listener="#{updateUserBean.init()}" />
+        </f:metadata>
+        <h1>Please update the user details</h1>
+        <h2>Please make sure that you have entered the correct info and be careful not to divulge private data!</h2>
+        <h:panelGrid columns="2" cellpadding="3" cellspacing="1" columnClasses="left-column,right-column">
+            <h:outputText value="UserID"/>
+            <h:inputText value="#{updateUserBean.userID}" required="true" requiredMessage="ISBN must be provided"/>
+
+            <h:outputText value="Name" />
+            <h:inputText value="#{updateUserBean.name}" required="true" requiredMessage="Tittle must be provided"/>
+
+            <h:outputText value="Last Name" />
+            <h:inputText value="#{updateUserBean.lastName}" required="true" requiredMessage="Edition Number must be provided"/>
+
+            <h:outputText value="Email" />
+            <h:inputText value="#{updateUserBean.email}" required="true" requiredMessage="Copyright must be provided"/>
+
+            <h:outputText value="Type" />
+            <h:inputText value="#{updateUserBean.type}" required="true" requiredMessage="Author must be provided"/>
+
+            <h:outputText value="Password" />
+            <h:inputText value="#{updateUserBean.password}" required="true" requiredMessage="Quantity must be provided"/>
+            </h:panelGrid>
+            <br/><br/>
+            <br/><br/>
+            <h:panelGrid columns="2">
+            <h:commandButton value="Update" 
+                             action="#{updateUserBean.update()}" 
+                            onclick="if (! confirm('Are you sure?')) return false"/>
+            <h:commandButton value="Cancel" action="managerView" />
+            </h:panelGrid>
+        <br/><br/>
+        <h2>NOTE! You may have to perform a filter operation on the view users page to see the updates.</h2>
+        </h:form>
+    </body>
+</html>
