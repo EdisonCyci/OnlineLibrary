@@ -39,7 +39,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES ('0132121360','Android for Programmers: An App-Driven Approach',1,'2012','Paul, Harvey & Abby Dietel, Michael Morgano',30),('0132151006','Internet & World Wide Web How to Program',5,'2012','Paul, Harvey & Abby Dietel',30),('0132575655','Java How to Program, Late Objects Version',10,'2015','Paul & Harvey Dietel',30),('013299044X','C How to Program',7,'2013','Paul & Harvey Dietel',30),('0132990601','Simply Visual Basic 2010',4,'2013','Paul, Harvey & Abby Dietel',30),('0133378713','C++ How to Program',9,'2014','Paul & Harvey Dietel',30),('0133379337','Visual C# 2012 How to Program',5,'2014','Paul & Harvey Dietel',30),('0133406954','Visual Basic 2012 How to Program',6,'2014','Paul, Harvey & Abby Dietel',30),('0133570924','Android for Programmers: An App-Driven Approach, Volume 1',2,'2014','Paul, Harvey & Abby Dietel',30),('0133764036','Android How to Program',2,'2015','Paul, Harvey & Abby Dietel',30),('0133807800','Java How to Program',10,'2015','Paul & Harvey Dietel',30),('0136151574','Visual C++ How to Program',2,'2008','Paul & Harvey Dietel, Dan Quirk',30);
+INSERT INTO `books` VALUES ('0132121360','Android for Programmers: An App-Driven Approach',1,'2012','Paul, Harvey & Abby Dietel, Michael Morgano',30),('0132151006','Internet & World Wide Web How to Program',5,'2012','Paul, Harvey & Abby Dietel',30),('0132575655','Java How to Program, Late Objects Version',10,'2015','Paul & Harvey Dietel',30),('013299044X','C How to Program',7,'2013','Paul & Harvey Dietel',30),('0132990601','Simply Visual Basic 2010',4,'2013','Paul, Harvey & Abby Dietel',30),('0133378713','C++ How to Program',9,'2014','Paul & Harvey Dietel',30),('0133379337','Visual C# 2012 How to Program',5,'2014','Paul & Harvey Dietel',30),('0133406954','Visual Basic 2012 How to Program',6,'2014','Paul, Harvey & Abby Dietel',30),('0133570924','Android for Programmers: An App-Driven Approach, Volume 1',2,'2014','Paul, Harvey & Abby Dietel',30),('0133764036','Android How to Program',2,'2015','Paul, Harvey & Abby Dietel',30),('0133807800','Java How to Program',10,'2015','Paul & Harvey Dietel',30),('0136151574','Visual C++ How to Program',2,'2008','Paul & Harvey Dietel, Dan Quirk',30),('1112345','Test',1,'Test','Test',5);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `borrowedbooks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `borrowedbooks` (
-  `ISBN` int(11) NOT NULL,
+  `ISBN` varchar(20) NOT NULL,
   `Title` varchar(100) NOT NULL,
   `EditionNumber` int(11) NOT NULL DEFAULT '0',
   `CopyRight` varchar(4) NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE `users` (
   `type` char(1) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Edison','Cyci','Edisoncuci@yahoo.com','A','root'),(2,'Peter','Brown','peterb@gmail.com.com','U','brownsauce'),(3,'Samuel','Smith','sSmith@gmail.com','U','smithers'),(4,'Tom','Thumb','ThumbTom@gmail.com','U','bigthumb');
+INSERT INTO `users` VALUES (1,'Edison','Cyci','Edisoncuci@yahoo.com','A','root'),(2,'Peter','Brown','peterb@gmail.com','U','brownsauce'),(3,'Samuel','Smith','sSmith@gmail.com','U','smithers'),(4,'Tom','Thumb','ThumbTom@gmail.com','U','bigthumb'),(5,'Benjamin','Parker','Bpark@yahoo.com','U','BenP');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-21 18:57:33
+-- Dump completed on 2019-02-23 22:24:07

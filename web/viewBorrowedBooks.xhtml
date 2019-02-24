@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    
+    <h:head>
+        <title>View Borrowed Books List</title>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h1>Welcome to our Borrowed books Database</h1>
+        <h2>Below you will find all the books borrowed by users</h2>
+        <br/><br/>
+            <h:panelGrid columns="2">
+                <h:commandButton value="Filter by ISBN" action="#{listBorrowedBooksBean.filterByISBN()}" />
+            <h:inputText value="#{listBorrowedBooksBean.filterByISBN}" />
+            <h:commandButton value="Filter by title" action="#{listBorrowedBooksBean.filterByTitle()}" />
+            <h:inputText value="#{listBorrowedBooksBean.filterTitle}" />
+            <h:commandButton value="Filter by author" action="#{listBorrowedBooksBean.filterByAuthor()}" />
+            <h:inputText value="#{listBorrowedBooksBean.filterAuthor}" />
+            <h:commandButton value="Filter by userID" action="#{listBorrowedBooksBean.filterByUserID()}" />
+            <h:inputText value="#{listBorrowedBooksBean.userID}" />
+        </h:panelGrid>
+        <br/><br/>                
+        <h2>Listing Borrowed Books</h2>
+        <br/><br/>
+        <h:dataTable value="#{listBorrowedBooksBean.books}"
+                     var="bBooks" 
+                     styleClass="order-table"
+                     headerClass="table-header"
+                     rowClasses="table-odd-row,table-even-row"
+                     cellpadding="3" cellspacing="1">
+            <h:column>
+                <f:facet name="header">Isbn</f:facet>
+                #{bBooks.isbn}
+                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                #{bBooks.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Edition Number</f:facet>
+                #{bBooks.editionNumber}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Copyright</f:facet>
+                #{bBooks.copyRight}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Author</f:facet>
+                #{bBooks.authors}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Quantity</f:facet>
+                #{bBooks.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Borrowed by</f:facet>
+                #{bBooks.borrowedBy.userid }
+            </h:column>
+            <h:column>
+                <f:facet name="header">Borrowed on</f:facet>
+                #{bBooks.borrowedOn}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Days late</f:facet>
+                #{bBooks.daysOverdue}
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:commandLink value="Return Book" 
+                               action="#{listBorrowedBooksBean.removeBook(bBooks.isbn)}" 
+                               onclick="if (! confirm('Are you sure?')) return false"/>
+            </h:column>
+        </h:dataTable>
+        <br/><br/>
+        <h:commandButton value="Back" action="managerView"/>
+        </h:form>
+    </h:body>
+</html>

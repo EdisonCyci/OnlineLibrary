@@ -8,12 +8,14 @@ package ModelClasses;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -25,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author GW Computers
  */
 @Entity
+@Table(name = "borrowedbooks")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Borrowedbooks.findAll", query = "SELECT b FROM Borrowedbooks b")
@@ -42,29 +45,38 @@ public class Borrowedbooks implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    private Integer isbn;
+    @Size(min = 1, max = 20)
+    @Column(name = "ISBN")
+    private String isbn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
+    @Column(name = "Title")
     private String title;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "EditionNumber")
     private int editionNumber;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 4)
+    @Column(name = "CopyRight")
     private String copyRight;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
+    @Column(name = "Authors")
     private String authors;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "Quantity")
     private int quantity;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "borrowedOn")
     @Temporal(TemporalType.TIMESTAMP)
     private Date borrowedOn;
+    @Column(name = "daysOverdue")
     private Integer daysOverdue;
     @JoinColumn(name = "borrowedBy", referencedColumnName = "userid")
     @ManyToOne(optional = false)
@@ -73,11 +85,11 @@ public class Borrowedbooks implements Serializable {
     public Borrowedbooks() {
     }
 
-    public Borrowedbooks(Integer isbn) {
+    public Borrowedbooks(String isbn) {
         this.isbn = isbn;
     }
 
-    public Borrowedbooks(Integer isbn, String title, int editionNumber, String copyRight, String authors, int quantity, Date borrowedOn) {
+    public Borrowedbooks(String isbn, String title, int editionNumber, String copyRight, String authors, int quantity, Date borrowedOn) {
         this.isbn = isbn;
         this.title = title;
         this.editionNumber = editionNumber;
@@ -87,11 +99,11 @@ public class Borrowedbooks implements Serializable {
         this.borrowedOn = borrowedOn;
     }
 
-    public Integer getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Integer isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

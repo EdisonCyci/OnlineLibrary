@@ -4,22 +4,30 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/ModelClasses/Books.java</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/login.xhtml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/ViewUsers.xhtml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/ListBooksBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/listBorrowedBooksBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/AddBook.xhtml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/viewBookDetails.xhtml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/updateBookBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/updateUser.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/ListUsersBean.java</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/updateBook.xhtml</file>
-            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/addUser.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/AddUserBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/ModelClasses/Borrowedbooks.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/viewBookDetailsBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/lendBook.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/LoginBean.java</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/managerView.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/ModelClasses/Users.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/viewUserDetailsBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/lendBookBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/viewBorrowedBooks.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/updateUserBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/login.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/ViewUsers.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/ListBooksBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/viewBookDetails.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/updateBookBean.java</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/viewUserDetails.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/updateBook.xhtml</file>
+            <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/addUser.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/web/index.xhtml</file>
             <file>file:/C:/Users/GW%20Computers/Documents/NetBeansProjects/OnlineLibrary/src/java/beans/AddBookBean.java</file>
         </group>

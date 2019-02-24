@@ -43,8 +43,12 @@ and open the template in the editor.
             <f:facet name = "footer">
                 <h:panelGroup>
                     <h:commandButton value="Back" action="managerView" />
-                    <h:outputText value=" " />
+                    <h:outputText value="  " />
                     <h:commandButton value="Update" action="updateBook" >
+                        <f:param name="bookIsbn" value="#{viewBookDetailsBean.ISBN}" />
+                    </h:commandButton>
+                    <h:outputText value="  " />
+                    <h:commandButton value="Lend Book" action="lendBook" >
                         <f:param name="bookIsbn" value="#{viewBookDetailsBean.ISBN}" />
                     </h:commandButton>
                 </h:panelGroup>
